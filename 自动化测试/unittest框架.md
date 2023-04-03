@@ -47,7 +47,34 @@ def tearDown(self):
 
 等待
 
-```
+```python
+# 强制等待
+from time from sleep
+time.sleep(second)	
+
+
+# 隐式等待
+from selenium import webdriver
+driver = webdriver.Chrome()
+driver.get('https://www.baidu.com')
+driver.implicitly_wait(10)
+
+
+# 显示等待
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+
+driver = webdriver.Chrome()
+driver.get('https://www.baidu.com/')
+search = WebDriverWait(driver, 10, 0.5).until(
+    expected_conditions.visibility_of_element_located(
+        (By.ID, 'kw')
+    )
+)
+search.send_keys('selenium')
+driver.find_element(By.ID, 'su').click()
 ```
 
 
