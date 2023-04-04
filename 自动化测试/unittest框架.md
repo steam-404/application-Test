@@ -24,13 +24,15 @@ run.run(suite)
 测试夹具
 
 ```python
+@classmethod
 def setUpClass(cls):
      print('setUpClass')
 
+@classmethod
 def tearDownClass(cls):
     print('tarDownClass')
 # 每个测试类前/后执行
-    
+# 需要添加classmethod注解    
     
 def setUp(self):
     print('setup')
