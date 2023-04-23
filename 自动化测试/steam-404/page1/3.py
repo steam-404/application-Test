@@ -1,6 +1,9 @@
 import csv
 import unittest
 from ddt import ddt, data, unpack
+from csvv import read_file
+
+dataMessage = read_file()
 
 
 @ddt()
@@ -13,7 +16,8 @@ class Test(unittest.TestCase):
         pass
         # print('tearDown')
 
-    @data(*csv.reader(open('testdata.csv')))
+    @data(*dataMessage)
+    @unpack
     @unpack
     def test01(self, value):
         print(value)
